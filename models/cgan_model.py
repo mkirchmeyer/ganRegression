@@ -37,6 +37,32 @@ class CGAN():
             self.y_input_size = 1
             self.z_input_size = exp_config.model.z_input_size
             self.architecture = 3
+        elif self.scenario == "comp-activ":
+            self.x_input_size = 21
+            self.y_input_size = 1
+            self.z_input_size = exp_config.model.z_input_size
+            self.architecture = 5
+        elif self.scenario == "pumadyn":
+            self.x_input_size = 32
+            self.y_input_size = 1
+            self.z_input_size = exp_config.model.z_input_size
+            self.architecture = 4
+        elif self.scenario == "bank":
+            self.x_input_size = 32
+            self.y_input_size = 1
+            self.z_input_size = exp_config.model.z_input_size
+            self.architecture = 4
+            self.architecture = 3
+        elif self.scenario == "census-house":
+            self.x_input_size = 16
+            self.y_input_size = 1
+            self.z_input_size = exp_config.model.z_input_size
+            self.architecture = 3
+        elif self.scenario == "abalone":
+            self.x_input_size = 7
+            self.y_input_size = 1
+            self.z_input_size = exp_config.model.z_input_size
+            self.architecture = 3
         else:
             self.x_input_size = 1
             self.y_input_size = 1

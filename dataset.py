@@ -121,6 +121,62 @@ def get_dataset(n_instance=1000, scenario="linear", seed=1):
         y_test_full = my_data_test[:, 40] * scaling
 
         X_test, X_valid, y_test, y_valid = train_test_split(X_test_full, y_test_full, random_state=seed)
+        
+    elif scenario == "comp-activ":
+        scaling = 1
+
+        my_data_train = np.genfromtxt(f"../data/comp-activ/Prototask.data", delimiter=' ')
+        X_train = my_data_train[0:4096, 0:21]
+        y_train = my_data_train[0:4096, 21] * scaling
+
+        X_test_full = my_data_train[4096:8192, 0:21]
+        y_test_full = my_data_train[4096:8192, 21] * scaling
+
+        X_test, X_valid, y_test, y_valid = train_test_split(X_test_full, y_test_full, random_state=seed)
+
+    elif scenario == "pumadyn":
+        scaling = 1000
+        my_data_train = np.genfromtxt(f"../data/pumadyn-32nm/Prototask.data", delimiter=' ')
+        X_train = my_data_train[0:4096, 0:32]
+        y_train = my_data_train[0:4096, 32] * scaling
+
+        X_test_full = my_data_train[4096:8192, 0:32]
+        y_test_full = my_data_train[4096:8192, 32] * scaling
+
+        X_test, X_valid, y_test, y_valid = train_test_split(X_test_full, y_test_full, random_state=seed)
+
+    elif scenario == "bank":
+        scaling = 10
+        my_data_train = np.genfromtxt(f"../data/bank-32nm/Prototask.data", delimiter=' ')
+        X_train = my_data_train[0:4096, 0:32]
+        y_train = my_data_train[0:4096, 32] * scaling
+
+        X_test_full = my_data_train[4096:8192, 0:32]
+        y_test_full = my_data_train[4096:8192, 32] * scaling
+
+        X_test, X_valid, y_test, y_valid = train_test_split(X_test_full, y_test_full, random_state=seed)
+
+    elif scenario == "census-house":
+        scaling = 10**-5
+        my_data_train = np.genfromtxt(f"../data/census-house/house-price-16H/Prototask.data", delimiter=' ')
+        X_train = my_data_train[0:11392, 0:16]
+        y_train = my_data_train[0:11392, 16] * scaling
+
+        X_test_full = my_data_train[11392:22784, 0:16]
+        y_test_full = my_data_train[11392:22784, 16] * scaling
+
+        X_test, X_valid, y_test, y_valid = train_test_split(X_test_full, y_test_full, random_state=seed)
+
+    elif scenario == "abalone":
+        scaling = 1
+        my_data_train = np.genfromtxt(f"../data/abalone/Prototask.data", delimiter=' ')
+        X_train = my_data_train[0:2089, 1:8]
+        y_train = my_data_train[0:2089, 8] * scaling
+
+        X_test_full = my_data_train[2089:4177, 1:8]
+        y_test_full = my_data_train[2089:4177, 8] * scaling
+
+        X_test, X_valid, y_test, y_valid = train_test_split(X_test_full, y_test_full, random_state=seed)
 
     else:
         raise NotImplementedError("Dataset does not exist")

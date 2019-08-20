@@ -13,7 +13,8 @@ In order to run, the code requires the following Python modules referenced in `r
 CGAN code is derived from `https://github.com/eriklindernoren/Keras-GAN`
 
 # Quickstart
-* Create conda environment: `conda create --name ganRegression python=3.6 -y` 
+* Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+* Create conda environment: `conda create --name ganRegression python=3.6 -y` then source it `source activate ganRegression`
 * Install the requirements in this environment `pip install -r requirements.txt`
 * Install the package `pip install -e .` at the root
 * Run the notebooks using `jupyter-notebook`
@@ -24,9 +25,11 @@ CGAN code is derived from `https://github.com/eriklindernoren/Keras-GAN`
 * Notebooks will save figures in the `figures` folder for each data scenario
 
 # Datasets
-* Synthetic datasets: `linear`, `sinus`, `heteroscedasitic`, `exp`, `multi-modal`
-* Real World datasets: `CA-housing`, `ailerons`. `CA-housing-single` takes the most important feature from `CA-housing` 
-(cf. study in the paper)
+* Synthetic datasets: `linear`, `sinus`, `heteroscedastic`, `exp`, `multi-modal`
+* Real World datasets:
+    * `CA-housing` taken from `sklearn.datasets`. `CA-housing-single` takes the most important feature from `CA-housing` (cf. study in the paper)
+    * `ailerons` taken from `http://www.dcc.fc.up.pt/~ltorgo/Regression/DataSets.html`
+    * `comp-activ`, `pumadyn`, `bank`, `census-house`, `abalone` taken from `https://www.cs.toronto.edu/~delve/data/datasets.html` 
 
 # Config
 * The Config class handles all parameters. These are set at the beginning of each notebook. Refer to `config.py` for more details
